@@ -1,17 +1,14 @@
 import {productos} from "../helpers/baseDatos.js";
+import {ampliarInfo} from "../helpers/ampliarInfo.js";
 
-let nombre = document.getElementById("nombre")
-let precio = document.getElementById("precio")
-let descripcion = document.getElementById("descripcion")
-let imagen = document.getElementById("imagen")
+ampliarInfo(productos)
+let cantidad = document.getElementById("cantidad")
+cantidad.addEventListener("keydown", (tecla) => {
+    let array = ["e", "."]
+    if (array.includes(tecla.key)) {
+        tecla.preventDefault()
+    }
+    console.log(cantidad.textContent)
+})
 
-// obteniendo datos de la URL
-let datosGET = new URLSearchParams(location.search)
-let posicion = +datosGET.get("posicion")
-let producto = productos[posicion]
-
-nombre.textContent = producto.nombre
-precio.textContent = producto.precio
-descripcion.textContent = producto.descripcion
-imagen.setAttribute("src", producto.fotos[0])
 
