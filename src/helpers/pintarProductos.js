@@ -1,5 +1,5 @@
 export function pintarProductos(productos) {
-    productos.forEach(function (producto, index) {
+    productos.forEach(function (producto) {
         // creando columnas para alojar los productos
         let columna = document.createElement("div")
         columna.classList.add("col")
@@ -18,10 +18,14 @@ export function pintarProductos(productos) {
         titulo.classList.add("text-center", "fw-800")
         titulo.textContent = producto.nombre
 
+        let descripcion = document.createElement("p")
+        descripcion.textContent = producto.descripcion
+        descripcion.classList.add("d-none")
+
         // crear un precio
         let precio = document.createElement("h5")
         precio.classList.add("text-center", "text-success", "fw-bold")
-        precio.textContent = "USD " + producto.precio
+        precio.textContent = producto.precio
 
         // detectando evento
         tarjeta.addEventListener("mouseover", () => {
@@ -32,13 +36,14 @@ export function pintarProductos(productos) {
             imagen.src = producto.fotos[0]
         })
 
-        tarjeta.addEventListener("click", () => {
-            location.href = "./src/views/ampliarInfo.html?posicion="+ index;
-        } )
+       // tarjeta.addEventListener("click", () => {
+       //     location.href = "./src/views/ampliarInfo.html?posicion="+ index;
+       // } )
 
         // padres e hijos
         tarjeta.appendChild(imagen)
         tarjeta.appendChild(titulo)
+        tarjeta.appendChild(descripcion)
         tarjeta.appendChild(precio)
         columna.appendChild(tarjeta)
         fila.appendChild(columna)
