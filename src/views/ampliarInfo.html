@@ -56,16 +56,20 @@
 <main>
     <div class="container-fluid my-5">
         <div class="row justify-content-center">
-            <div class="col-5">
+            <div class="col-4">
                 <img src="" alt="foto" class="img-fluid w-100" id="imagenInfo">
             </div>
-            <div class="col-3 border-start">
+            <div class="col-4 border-start">
                 <h3 class="fw-bold" id="nombre">
                     Titulo Producto </h3>
                 <p id="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam debitis, dicta
                     dolorem enim est
                     eum impedit iste itaque labore maxime molestiae mollitia quia quidem saepe sapiente sequi vero vitae voluptate?</p>
-                <h2 class="text-success" id="precio">USD $40</h2>
+                <div class="precio d-flex align-items-center">
+                    <img src="../../assets/img/colombia.svg" alt="bandera de Colombia" width="64px" class="me-3"
+                         id="bandera">
+                    <h2 id="precio" class="text-success">USD $40</h2>
+                </div>
                 <img src="../../assets/img/visa.png" alt="visa" class="img-fluid" width="64">
                 <img src="../../assets/img/american-express.png" alt="american-x" class="img-fluid" width="64">
                 <br>
@@ -79,11 +83,13 @@
                 <input id="cantidad" type="number" placeholder="1"
                        class="form-control" min="1">
                 <hr>
-                <h4 style="display: inline">Subtotal: </h4>
-                <span class="mt-5 fw-bold">$ 1500</span>
                 <br>
                 <button class="btn btn-warning" type="button">Agregar al carrito</button>
-                <button id ="conversor" class="btn btn-primary">Precio dolares</button>
+                <div>
+                    <button id ="conversor" type="button"  class="btn btn-primary mt-2">Precio dolares</button>
+                    <span id="precioUSD">
+                    </span>
+                </div>
             </div>
         </div>
     </div>

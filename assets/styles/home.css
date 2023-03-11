@@ -9,3 +9,7 @@
 .menu {
     background-color: rgb(49, 43, 54);
 }
+
+.card {
+    border: 2px solid #56b6c2;
+}

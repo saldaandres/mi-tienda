@@ -18,6 +18,4 @@ fila.addEventListener("click", function (evento) {
     window.location.href = "./src/views/ampliarInfo.html"
 })
 
-let conversor = document.getElementById("")
-
 
