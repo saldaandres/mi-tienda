@@ -1,4 +1,11 @@
+ export const formateador = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0
+})
+
 export function pintarProductos(productos) {
+
     productos.forEach(function (producto) {
         // creando columnas para alojar los productos
         let columna = document.createElement("div")
@@ -6,7 +13,7 @@ export function pintarProductos(productos) {
 
         // crear una tarjeta para almacenar la info del producto
         let tarjeta = document.createElement("div")
-        tarjeta.classList.add("card", "h-100", "shadow")
+        tarjeta.classList.add("card", "h-100")
 
         // crear una imagen
         let imagen = document.createElement("img")
@@ -15,7 +22,7 @@ export function pintarProductos(productos) {
 
         // crear un titulo
         let titulo = document.createElement("h4")
-        titulo.classList.add("text-center", "fw-800")
+        titulo.classList.add("text-center", "fw-800", "mt-3")
         titulo.textContent = producto.nombre
 
         let descripcion = document.createElement("p")
@@ -23,9 +30,13 @@ export function pintarProductos(productos) {
         descripcion.classList.add("d-none")
 
         // crear un precio
-        let precio = document.createElement("h5")
-        precio.classList.add("text-center", "text-success", "fw-bold")
-        precio.textContent = producto.precio
+        let precioDisplay = document.createElement("h5")
+        precioDisplay.classList.add("text-center", "text-rojo", "fw-bold", "mb-3")
+        precioDisplay.textContent = formateador.format(producto.precio)
+
+        let precioOculto = document.createElement("h1")
+        precioOculto.classList.add("d-none")
+        precioOculto.textContent = producto.precio
 
         // detectando evento
         tarjeta.addEventListener("mouseover", () => {
@@ -44,7 +55,8 @@ export function pintarProductos(productos) {
         tarjeta.appendChild(imagen)
         tarjeta.appendChild(titulo)
         tarjeta.appendChild(descripcion)
-        tarjeta.appendChild(precio)
+        tarjeta.appendChild(precioDisplay)
+        tarjeta.appendChild(precioOculto)
         columna.appendChild(tarjeta)
         fila.appendChild(columna)
     })

@@ -23,3 +23,24 @@ function convertirMoneda(tasa) {
     bandera.src = "../../assets/img/estados_unidos.png"
 }
 
+export function traducirTexto(texto) {
+    const encodedParams = new URLSearchParams();
+    encodedParams.append("from", "en");
+    encodedParams.append("to", "es-co");
+    encodedParams.append("text", texto);
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'X-RapidAPI-Key': '88bdb8caecmsh448d0ab30ef1311p11408ejsn7d53d16f1b9b',
+            'X-RapidAPI-Host': 'translo.p.rapidapi.com'
+        },
+        body: encodedParams
+    };
+
+    fetch('https://translo.p.rapidapi.com/api/v3/translate', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+}

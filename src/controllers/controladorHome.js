@@ -10,12 +10,21 @@ fila.addEventListener("click", function (evento) {
     let datosProducto = {}
     datosProducto.foto = tarjeta.querySelector("img").src
     datosProducto.nombre = tarjeta.querySelector("h4").textContent
-    datosProducto.precio = tarjeta.querySelector("h5").textContent
+    datosProducto.precio = tarjeta.querySelector("h1").textContent
     datosProducto.descripcion = tarjeta.querySelector("p").textContent
 
     // usaremos la memoria del pc para guardar esta info
     localStorage.setItem("producto", JSON.stringify(datosProducto))
     window.location.href = "./src/views/ampliarInfo.html"
+})
+
+window.addEventListener("scroll", () => {
+    let menu = document.querySelector(".menu")
+    if (document.documentElement.scrollTop > 30 ) {
+        menu.classList.add("fixed-top")
+    } else {
+        menu.classList.remove("fixed-top")
+    }
 })
 
 
