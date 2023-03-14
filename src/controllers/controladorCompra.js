@@ -1,5 +1,5 @@
 // llamo a la memoria para acceder a los datos
-import {ejecutarApiTasas} from "../helpers/ampliarInfo.js";
+import {ejecutarApiTasas, traducirTexto} from "../helpers/ampliarInfo.js";
 import {formateador} from "../helpers/pintarProductos.js";
 
 // pintando el producto
@@ -16,6 +16,7 @@ descripcion.textContent = infoProducto.descripcion
 
 // convertiendo las monedas
 let botonConvertir = document.getElementById("conversor")
+//botonConvertir.addEventListener("click", async () => await traducirTexto())
 botonConvertir.addEventListener("click", async () => await ejecutarApiTasas())
 
 // evitando problemas con el input de cantidad

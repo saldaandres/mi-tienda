@@ -19,8 +19,13 @@ body {
     background-color: #93E3E3;
 }
 
+.menu>a {
+    font-size: 25px;
+}
+
+
 .card {
-    border: 1px solid #56b6c2;
+    border: 1px solid #93E3E3;
 }
 
 #cintaSuperior {

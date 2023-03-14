@@ -1,4 +1,5 @@
 let infoProducto = JSON.parse(localStorage.getItem("producto"))
+
 export async function ejecutarApiTasas() {
     const options = {
         method: 'GET',
@@ -23,24 +24,24 @@ function convertirMoneda(tasa) {
     bandera.src = "../../assets/img/estados_unidos.png"
 }
 
-export function traducirTexto(texto) {
-    const encodedParams = new URLSearchParams();
-    encodedParams.append("from", "en");
-    encodedParams.append("to", "es-co");
-    encodedParams.append("text", texto);
+//<editor-fold desc="Funcion para incluir texto traducido. Aun no funciona">
+export async function traducirTexto() {
+    let descripcion = document.getElementById("descripcion")
+    let textoDescripcion = descripcion.textContent
+
 
     const options = {
         method: 'POST',
         headers: {
-            'content-type': 'application/x-www-form-urlencoded',
+            'content-type': 'application/json',
             'X-RapidAPI-Key': '88bdb8caecmsh448d0ab30ef1311p11408ejsn7d53d16f1b9b',
-            'X-RapidAPI-Host': 'translo.p.rapidapi.com'
+            'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com'
         },
-        body: encodedParams
+        body: '{"q":"Hola","source":"es","target":"en"}'
     };
 
-    fetch('https://translo.p.rapidapi.com/api/v3/translate', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
+    let response = await fetch('https://deep-translate1.p.rapidapi.com/language/translate/v2', options)
+    let datos = await response.json()
+    console.log(datos)
 }
+//</editor-fold>
