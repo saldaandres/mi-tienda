@@ -1,5 +1,5 @@
 // llamo a la memoria para acceder a los datos
-import {ejecutarApiTasas, traducirTexto} from "../helpers/ampliarInfo.js";
+import {ejecutarApiTasas} from "../helpers/ampliarInfo.js";
 import {formateador} from "../helpers/pintarProductos.js";
 
 // pintando el producto
@@ -13,6 +13,23 @@ precio.innerHTML = formateador.format(infoProducto.precio)
 let descripcion = document.getElementById("descripcion")
 descripcion.textContent = infoProducto.descripcion
 let spanCantidad = document.getElementById("spanCarrito")
+
+// pintar fotos pequeñas
+let objetoFotos = JSON.parse(localStorage.getItem("fotos"))
+let foto1 = document.getElementById("foto1")
+let foto2 = document.getElementById("foto2")
+foto1.src = objetoFotos.fotos[0]
+foto2.src = objetoFotos.fotos[1]
+
+// cambiar la foto grande
+foto1.addEventListener("click", ()=> {
+    foto.src = foto1.src
+})
+foto2.addEventListener("click", ()=> {
+    foto.src = foto2.src
+})
+
+
 
 let infoCarrito = JSON.parse(localStorage.getItem("carrito"))
 let carrito = []
@@ -42,6 +59,12 @@ cantidad.addEventListener("keydown", (tecla) => {
     if (teclasProhibidas.includes(tecla.key)) {
         tecla.preventDefault()
     }
+})
+
+// calculando el subtotal
+let spanSubtotal = document.getElementById("subtotal")
+cantidad.addEventListener("input", () => {
+    spanSubtotal.textContent = formateador.format(cantidad.value * infoProducto.precio)
 })
 
 

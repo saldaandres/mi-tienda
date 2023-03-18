@@ -69,6 +69,14 @@
         <div class="row justify-content-center">
             <div class="col-4">
                 <img src="" alt="foto" class="img-fluid w-100" id="imagenInfo">
+                <div class="container-fotos d-flex justify-content-evenly mt-2">
+                    <div class="col-4">
+                        <img id="foto1" class="img-fluid" src="" alt="foto1">
+                    </div>
+                    <div class="col-4">
+                        <img id="foto2" class="img-fluid" src="" alt="foto2">
+                    </div>
+                </div>
             </div>
             <div class="col-4 border-start">
                 <h3 class="fw-bold" id="nombre">
@@ -95,7 +103,10 @@
                 <input id="cantidad" type="number" placeholder="1"
                        class="form-control" min="1">
                 <hr>
-                <br>
+                <div>
+                    <h4 class="d-inline-block">Subtotal: </h4>
+                    <span id="subtotal"></span>
+                </div>
                 <button class="btn btn-warning" id="agregarAlCarrito" type="button">Agregar al carrito</button>
                 <div>
                     <button id="conversor" type="button" class="btn btn-primary mt-2">Precio dolares</button>

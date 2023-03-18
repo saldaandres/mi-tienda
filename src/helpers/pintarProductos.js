@@ -41,6 +41,9 @@ export function pintarProductos(productos) {
         // detectando evento
         tarjeta.addEventListener("mouseover", () => {
             imagen.src = producto.fotos[1];
+            let objetoFotos = {}
+            objetoFotos.fotos = producto.fotos
+            localStorage.setItem("fotos", JSON.stringify(objetoFotos))
         })
 
         tarjeta.addEventListener("mouseout", () => {
