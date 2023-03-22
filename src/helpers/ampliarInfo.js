@@ -22,6 +22,10 @@ function convertirMoneda(tasa) {
 
     let bandera = document.getElementById("bandera")
     bandera.src = "../../assets/img/estados_unidos.png"
+
+    let cantidad = document.getElementById("cantidad").value
+    let spanSubtotal = document.getElementById("subtotal")
+    spanSubtotal.textContent = "$ " + (precioUSD * cantidad).toFixed(2)
 }
 
 //<editor-fold desc="Funcion para incluir texto traducido. Aun no funciona">

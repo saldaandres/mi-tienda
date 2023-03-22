@@ -1,5 +1,5 @@
-body {
-    font-family: 'Dosis';
+a {
+    font-weight: bold;
 }
 
 .nav-link:hover {
@@ -42,5 +42,13 @@ ul>li {
 
 img {
     border-radius: 1%;
+}
+
+.gris {
+    filter: grayscale(100%);
+}
+
+#spanCarrito {
+    font-size: 15px;
 }
 

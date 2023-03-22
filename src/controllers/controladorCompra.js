@@ -18,15 +18,21 @@ let spanCantidad = document.getElementById("spanCarrito")
 let objetoFotos = JSON.parse(localStorage.getItem("fotos"))
 let foto1 = document.getElementById("foto1")
 let foto2 = document.getElementById("foto2")
+foto1.classList.add("gris")
 foto1.src = objetoFotos.fotos[0]
 foto2.src = objetoFotos.fotos[1]
 
 // cambiar la foto grande
 foto1.addEventListener("click", ()=> {
     foto.src = foto1.src
+    foto2.classList.add("gris")
+    foto1.classList.remove("gris")
 })
 foto2.addEventListener("click", ()=> {
+    foto1.classList.add("gris")
+    foto2.classList.remove("gris")
     foto.src = foto2.src
+
 })
 
 
@@ -66,6 +72,15 @@ let spanSubtotal = document.getElementById("subtotal")
 cantidad.addEventListener("input", () => {
     spanSubtotal.textContent = formateador.format(cantidad.value * infoProducto.precio)
 })
+
+// limpiar carrito
+let botonLimpiar = document.getElementById("limpiar-carrito")
+botonLimpiar.addEventListener("click", () => {
+    carrito = []
+    spanCantidad.textContent = carrito.length
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+})
+
 
 
 
